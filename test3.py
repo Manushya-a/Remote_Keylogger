@@ -2,15 +2,11 @@ from pynput import keyboard
 
 def on_press(key, injected):
     try:
-        print('alphanumeric key {} pressed; it was {}'.format(
-            key.char, 'faked' if injected else 'not faked'))
+        print(key.char)
     except AttributeError:
-        print('special key {} pressed'.format(
-            key))
+        print(key)
 
 def on_release(key, injected):
-    print('{} released; it was {}'.format(
-        key, 'faked' if injected else 'not faked'))
     if key == keyboard.Key.esc:
         # Stop listener
         return False
