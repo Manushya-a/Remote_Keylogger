@@ -21,9 +21,7 @@ This project is for EDUCATIONAL AND RESEARCH PURPOSES ONLY.
 ✔ Do not use for malicious purposes (e.g., stealing credentials).
 
 ### 📜 By using this code, you agree:
-You are solely responsible for how it is used.
-
----
+- You are solely responsible for how it is used.
 
 *The developer is not liable for misuse.*
 
