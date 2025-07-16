@@ -1,0 +1,9 @@
+# Required Python packages
+pynput==1.7.6              # For keyboard input monitoring and control
+websockets==11.0.3         # For WebSocket communication
+pyinstaller==6.2.0         # For converting Python script to executable
+
+# Note: These are built-in Python modules and don't need installation:
+# asyncio
+# datetime
+# ctypes
