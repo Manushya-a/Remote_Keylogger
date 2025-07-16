@@ -23,7 +23,7 @@ This project is for EDUCATIONAL AND RESEARCH PURPOSES ONLY.
 ### 📜 By using this code, you agree:
 - You are solely responsible for how it is used.
 
-*~~ The developer is not liable for misuse. ~~*
+*~ The developer is not liable for misuse. ~*
 
 ## Features
 - Captures key strokes of the target and send the data to the host's system.
