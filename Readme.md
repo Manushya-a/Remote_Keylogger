@@ -73,6 +73,10 @@ This project is for EDUCATIONAL AND RESEARCH PURPOSES ONLY.
 ## Dependencies
 Listed in `requirement.txt`
 
+## Known Issues
+- I was connected to a wifi network that had a firewall that was preventing the connection from the target outside the network. So this issue can be solved afterwards
+- The data sent by the taget is not encrypted, so it will be exposed if the data is intercepted. `Going to use SSL-TSL to solve this in the future`
+
 ## Support
 
 For questions or issues, please open an issue in the GitHub repository.
